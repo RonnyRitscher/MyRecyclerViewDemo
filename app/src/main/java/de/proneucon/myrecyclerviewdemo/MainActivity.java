@@ -11,7 +11,10 @@ package de.proneucon.myrecyclerviewdemo;
  *
  * !! Wenn in dem ItemLayout die TextViews auf MatchConstraind gesetzt sind, wird die Liste nicht angezeigt!!!
  * !! Lösung: die rechte Constraint des Items muss gelöscht werden, dann ist matchConstraind verwendbar!!!
- */
+ *
+ * Im gegensatz zur ListView sind in der RV ItemsDecoration verwendbar/änderbar
+ *
+ **/
 
 
 import android.graphics.Canvas;
