@@ -49,26 +49,15 @@ public class MainActivity extends AppCompatActivity {
         //INITIALISIERUNGEN
         personArrayList = new ArrayList<>();
         personArrayList.addAll(Arrays.asList(               //Dummy-Personen erstellen
-                new Person("Max", "Berlin"),
-                new Person("Frank", "Hamburg"),
-                new Person("Paul", "Bremen"),
-                new Person("Mia", "Bonn"),
-                new Person("Moritz", "Hamburg"),
-                new Person("Max", "Berlin"),
-                new Person("Frank", "Hamburg"),
-                new Person("Paul", "Bremen"),
-                new Person("Mia", "Bonn"),
-                new Person("Moritz", "Hamburg"),
-                new Person("Max", "Berlin"),
-                new Person("Frank", "Hamburgasdasdasdasd"),
-                new Person("Paul", "Bremen"),
-                new Person("Mia", "Bonn"),
-                new Person("Moritz", "Hamburg"),
-                new Person("Max", "Berlin"),
-                new Person("Frank", "Hamburg"),
-                new Person("Paul", "Bremenasdasdasdasdasdasd"),
-                new Person("Mia", "Bonn"),
-                new Person("Moritz", "Hamburg")
+                new Person("Max", "Berlin" , 1),
+                new Person("Frank", "Hamburg",2),
+                new Person("Paul", "Bremen",3),
+                new Person("Mia", "Bonn",4),
+                new Person("Moritz", "Hamburg",5),
+                new Person("Max", "Berlin",6),
+                new Person("Frank", "Hamburg",7),
+                new Person("Paul", "Bremen",8)
+
         ));
 
         recyclerView = findViewById(R.id.recyclerView);
@@ -116,13 +105,13 @@ public class MainActivity extends AppCompatActivity {
 
         //LAYOUT-MANAGER:****************************************************************
         /* layoutManager - normale Ansicht: */
-        rvLayoutManager = new LinearLayoutManager(this);
+//        rvLayoutManager = new LinearLayoutManager(this);
 
         /* layoutManager - erweiterung: elemente nebeneinander *** reverse: false zeigt den ersten Eintrag, true springt auf den letzten Eintrag */
 //        rvLayoutManager = new LinearLayoutManager(this , LinearLayoutManager.HORIZONTAL , false);
 
         /* verwenden von GRID-LAYOUT anzeigen der Items über Grid nebeneinander (für bsp: Landscape) */
-//        rvLayoutManager = new GridLayoutManager(this , 2); //
+        rvLayoutManager = new GridLayoutManager(this , 3); //
 
         //ADAPTER: Adapter wird initialisiert/gebaut****************************************************************
         rvAdapter = new RvAdapter();                        //extern eine neue Klasse RvAdapter() definieren

@@ -3,6 +3,7 @@ package de.proneucon.myrecyclerviewdemo;
 /**
  * Adapter für die RecyclerView
  */
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -10,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 class RvAdapter extends RecyclerView.Adapter<RvAdapter.ViewHolder>  {
@@ -33,11 +35,14 @@ class RvAdapter extends RecyclerView.Adapter<RvAdapter.ViewHolder>  {
         // besogt die Daten aus der DummyListe
         viewHolder.itemName.setText(MainActivity.personArrayList.get(i).getName()); //Liest den Name aus der AL für jeden Eintrag
         viewHolder.itemCity.setText(MainActivity.personArrayList.get(i).getCity()); //Liest den City aus der AL für jeden Eintrag
-
+        int id = MainActivity.personArrayList.get(i).getId();
 
         //Hier können wir die Elemente anklicken
         viewHolder.itemView.setOnClickListener( (v) -> {
             Log.d(TAG, "onBindViewHolder: aus dem ViewAdapter :" + i + " wurde angewählt");
+            viewHolder.isClicked = !viewHolder.isClicked;       //wechselt das BooleanFlag
+            v.setBackgroundColor(viewHolder.isClicked ? Color.GREEN : Color.WHITE);
+
         });
 
     }
@@ -55,12 +60,14 @@ class RvAdapter extends RecyclerView.Adapter<RvAdapter.ViewHolder>  {
 
         //MEMBER: Wir benötigen Member
         TextView itemName, itemCity;
+        Boolean isClicked;
 
         //CONSTRUCTOR
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             itemName = itemView.findViewById(R.id.tv_item_user_name);
             itemCity = itemView.findViewById(R.id.tv_item_user_city);
+            isClicked = false;
         }
     }
 }
